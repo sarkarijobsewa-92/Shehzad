@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taskly - Stop being idle. Start earning.</title>
+  <meta name="description" content="Taskly local gig, micro-work, and task marketplace. Min ₹100 pay, transparent 10% platform commission, in-app chat, and zero phone sharing.">
+  <link rel="canonical" href="https://www.sarkarijobsewa.com/">
+  <link rel="icon" type="image/png" href="/assets/aistudio/Taskly__Move_Forward__Earn_More_b76aa58a.png">
+  <style>
+    :root {
+      --primary-orange: #F58220;
+      --orange-light: #FF9E42;
+      --navy: #0A2540;
+      --slate-50: #F8FAFC;
+      --slate-100: #F1F5F9;
+      --slate-200: #E2E8F0;
+      --slate-500: #64748B;
+      --slate-700: #334155;
+      --slate-900: #0F172A;
+      --green: #10B981;
+      --red: #EF4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    body { background-color: var(--slate-50); color: var(--slate-900); }
+
+    /* Top Logo Bar */
+    header.logo-bar {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--slate-200);
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .brand-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.1;
+    }
+    .brand-title span { color: var(--primary-orange); }
+    .tagline {
+      font-size: 11px;
+      color: var(--slate-500);
+      font-weight: 500;
+    }
+    nav.nav-links {
+      display: flex;
+      gap: 16px;
+    }
+    nav.nav-links a {
+      color: var(--slate-700);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    nav.nav-links a:hover, nav.nav-links a.active {
+      background: var(--slate-100);
+      color: var(--primary-orange);
+    }
+
+    /* ALWAYS PERSISTENT AD UNDER LOGO BAR */
+    .ad-under-logo-bar {
+      background: var(--slate-100);
+      border-bottom: 1px solid var(--slate-200);
+      padding: 8px 16px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Reusable Responsive Ad Components */
+    .ad-container {
+      width: 100%;
+      max-width: 900px;
+      background: #FFFFFF;
+      border: 1px dashed var(--slate-500);
+      border-radius: 8px;
+      padding: 10px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-height: 65px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .ad-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .ad-badge {
+      font-size: 9px;
+      font-weight: 800;
+      color: var(--slate-500);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .ad-provider {
+      font-size: 10px;
+      font-weight: 700;
+      background: #E8F0FE;
+      color: #1967D2;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    .ad-content-box {
+      font-size: 12px;
+      color: var(--slate-700);
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .ad-subtext {
+      font-size: 10px;
+      color: var(--slate-500);
+    }
+
+    /* Main Container */
+    .page-content {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 16px;
+    }
+
+    /* Hero */
+    .hero-banner {
+      background: var(--navy);
+      color: #FFFFFF;
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .hero-text h1 { font-size: 26px; font-weight: 900; margin-bottom: 6px; }
+    .hero-text p { font-size: 13px; color: var(--slate-200); margin-bottom: 14px; }
+    .hero-btn {
+      background: var(--primary-orange);
+      color: #FFFFFF;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .hero-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 12px;
+      background: #FFFFFF;
+      padding: 4px;
+    }
+
+    /* Sections */
+    .section-card {
+      background: #FFFFFF;
+      border-radius: 12px;
+      border: 1px solid var(--slate-200);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    /* Job Cards */
+    .job-list { display: flex; flex-direction: column; gap: 14px; margin-top: 14px; }
+    .job-card {
+      background: #FFFFFF;
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .job-category-tag {
+      align-self: flex-start;
+      background: #E2EAF4;
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .job-title { font-size: 16px; font-weight: 700; color: var(--slate-900); }
+    .job-budget-box {
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 6px;
+      padding: 8px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+    }
+    .worker-takehome { font-size: 14px; font-weight: 900; color: #065F46; }
+
+    footer {
+      border-top: 1px solid var(--slate-200);
+      padding: 24px 20px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--slate-500);
+      background: #FFFFFF;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. TOP LOGO BAR -->
+  <header class="logo-bar">
+    <a href="#" class="logo-container">
+      <img src="/assets/aistudio/Taskly__Move_Forward__Earn_More_b76aa58a.png" alt="Taskly Logo" class="logo-img">
+      <div>
+        <div class="brand-title">Task<span>ly</span></div>
+        <div class="tagline">Stop being idle. Start earning.</div>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#find-work" class="active">Find Work</a>
+      <a href="#post-task">Post a Task</a>
+      <a href="#payments">Payments & Khata</a>
+      <a href="#rules">Rules & Safety</a>
+    </nav>
+  </header>
+
+  <!-- 2. ALWAYS PERSISTENT AD PLACEMENT DIRECTLY UNDER LOGO BAR -->
+  <div class="ad-under-logo-bar">
+    <div class="ad-container">
+      <div class="ad-header-row">
+        <span class="ad-badge">ADVERTISEMENT • TOP BANNER</span>
+        <span class="ad-provider">Google AdSense / Monetag Responsive</span>
+      </div>
+      <div class="ad-content-box">
+        <span>Google AdSense Header Unit (tsk_header_under_logo_00)</span>
+        <span class="ad-subtext">Always visible directly under logo bar</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="page-content">
+
+    <!-- HERO SECTION -->
+    <section class="hero-banner">
+      <div class="hero-text">
+        <h1>Taskly Job Marketplace</h1>
+        <p>Connecting local gig workers and employers with 100% verified payments. Minimum pay is ₹100. Contact numbers are shielded for safety.</p>
+        <button class="hero-btn" onclick="document.getElementById('post-task').scrollIntoView({behavior:'smooth'})">Post a Task (Hire Workers)</button>
+      </div>
+      <img src="/assets/aistudio/Taskly__Move_Forward__Earn_More_b76aa58a.png" alt="Taskly Logo" class="hero-img">
+    </section>
+
+    <!-- HOMEPAGE AD SLOT 1 -->
+    <div style="margin-bottom: 20px;">
+      <div class="ad-container" style="background: #F8FAFC;">
+        <div class="ad-header-row">
+          <span class="ad-badge">SPONSORED • HOMEPAGE SLOT 1</span>
+          <span class="ad-provider">Google AdSense (tsk_home_banner_01)</span>
+        </div>
+        <div class="ad-content-box">
+          <span>Responsive Horizontal Banner Below Hero</span>
+          <span class="ad-subtext">Reserved min height • Zero layout shift</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEBPAGE 1: FIND WORK (JOB FEED WITH AD AFTER EVERY 3 JOBS) -->
+    <section id="find-work" class="section-card">
+      <div class="section-title">💼 Find Work & Discover Tasks</div>
+      <p style="font-size: 13px; color: var(--slate-500); margin-bottom: 12px;">Choose what kind of work you can do. Minimum pay is ₹100 with a transparent 10% platform fee.</p>
+
+      <div class="job-list">
+        <!-- Job 1 -->
+        <div class="job-card">
+          <span class="job-category-tag">Delivery & Courier</span>
+          <div class="job-title">Same-Day Retail Parcel Delivery</div>
+          <div style="font-size: 12px; color: var(--slate-700);">Karol Bagh & Rajouri Garden, New Delhi • 4 hours</div>
+          <div class="job-budget-box">
+            <span>Customer Budget: <strong>₹800</strong> (10% Fee: -₹80)</span>
+            <span class="worker-takehome">Take-Home: ₹720</span>
+          </div>
+        </div>
+
+        <!-- Job 2 -->
+        <div class="job-card">
+          <span class="job-category-tag">Home Repair & Electrician</span>
+          <div class="job-title">Emergency Ceiling Fan & AC Board Repair</div>
+          <div style="font-size: 12px; color: var(--slate-700);">Indiranagar, Bengaluru • 1.5 hours</div>
+          <div class="job-budget-box">
+            <span>Customer Budget: <strong>₹500</strong> (10% Fee: -₹50)</span>
+            <span class="worker-takehome">Take-Home: ₹450</span>
+          </div>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="job-card">
+          <span class="job-category-tag">Other: Terrace Gardening & Plant Care</span>
+          <div class="job-title">Custom Terrace Garden & Plant Pot Assembly</div>
+          <div style="font-size: 12px; color: var(--slate-700);">Boring Road, Patna • 3 hours</div>
+          <div class="job-budget-box">
+            <span>Customer Budget: <strong>₹650</strong> (10% Fee: -₹65)</span>
+            <span class="worker-takehome">Take-Home: ₹585</span>
+          </div>
+        </div>
+
+        <!-- AD PLACEMENT AFTER EVERY 3 JOBS (Requirement 4) -->
+        <div class="ad-container" style="background: #F1F5F9; border-color: #CBD5E1;">
+          <div class="ad-header-row">
+            <span class="ad-badge">ADVERTISEMENT • FEED SLOT (AFTER 3 LISTINGS)</span>
+            <span class="ad-provider">Google AdSense / Monetag (tsk_jobfeed_native_02)</span>
+          </div>
+          <div class="ad-content-box">
+            <span>In-Feed Sponsored Card (Placed every 3 tasks)</span>
+            <span class="ad-subtext">Separated from organic jobs • DPDP consent active</span>
+          </div>
+        </div>
+
+        <!-- Job 4 -->
+        <div class="job-card">
+          <span class="job-category-tag">Shop & Store Assistant</span>
+          <div class="job-title">Supermarket Stocking & Display Assistant</div>
+          <div style="font-size: 12px; color: var(--slate-700);">Andheri East, Mumbai • Shift 10 AM - 6 PM</div>
+          <div class="job-budget-box">
+            <span>Customer Budget: <strong>₹750</strong> (10% Fee: -₹75)</span>
+            <span class="worker-takehome">Take-Home: ₹675</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEBPAGE 2: POST A TASK (WITH IN-PAGE AD) -->
+    <section id="post-task" class="section-card">
+      <div class="section-title">➕ Post a Task (Hire on Taskly)</div>
+      <p style="font-size: 13px; color: var(--slate-500); margin-bottom: 14px;">Minimum pay is ₹100. Select a category or choose "Other" to write custom work.</p>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div>
+          <label style="font-size: 12px; font-weight: 700;">Task Category</label>
+          <select style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--slate-200); margin-top: 4px;">
+            <option>Delivery & Courier</option>
+            <option>Home Repair & Electrician</option>
+            <option>Cleaning & Cooking</option>
+            <option>Shop & Store Assistant</option>
+            <option selected>Other (Custom Work)</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="font-size: 12px; font-weight: 700;">Specify Work Needed (Custom Job)</label>
+          <input type="text" value="Terrace Gardening & Furniture Assembly" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--slate-200); margin-top: 4px;">
+        </div>
+
+        <div>
+          <label style="font-size: 12px; font-weight: 700;">Customer Budget (₹) - Min ₹100</label>
+          <input type="number" min="100" value="500" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--slate-200); margin-top: 4px;">
+          <small style="color: var(--slate-500); font-size: 11px;">Proposed 10% Fee: ₹50 | Worker receives: ₹450</small>
+        </div>
+      </div>
+
+      <!-- IN-PAGE AD ON POST A TASK WEBPAGE -->
+      <div style="margin-top: 16px;">
+        <div class="ad-container" style="background: #FFF7ED; border-color: #FDBA74;">
+          <div class="ad-header-row">
+            <span class="ad-badge">SPONSORED • POST TASK WEBPAGE AD</span>
+            <span class="ad-provider">Monetag (tsk_content_footer_03)</span>
+          </div>
+          <div class="ad-content-box">
+            <span>Employer Services & Equipment Rental Ad Slot</span>
+            <span class="ad-subtext">In-page placement under form</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEBPAGE 3: PAYMENTS & COMMISSION KHATA (WITH IN-PAGE AD) -->
+    <section id="payments" class="section-card">
+      <div class="section-title">💰 Payments, Escrow & Commission Khata</div>
+      <p style="font-size: 13px; color: var(--slate-500); margin-bottom: 12px;">Merchant UPI: <strong>8360608312@mbk</strong></p>
+
+      <div style="background: var(--slate-100); border-radius: 8px; padding: 14px; font-size: 13px; line-height: 1.6; color: var(--slate-700);">
+        <strong>Cash Commission Policy:</strong> If the owner pays full amount in cash on-site, the 10% platform commission is debited to the worker's khata. Maximum negative balance cannot exceed <strong>₹200</strong>. If reaches ₹200, worker is suspended until paying dues via UPI.
+      </div>
+
+      <!-- IN-PAGE AD ON PAYMENTS WEBPAGE -->
+      <div style="margin-top: 16px;">
+        <div class="ad-container" style="background: #F0FDF4; border-color: #86EFAC;">
+          <div class="ad-header-row">
+            <span class="ad-badge">ADVERTISEMENT • PAYMENTS WEBPAGE AD</span>
+            <span class="ad-provider">Google AdSense Financial Unit</span>
+          </div>
+          <div class="ad-content-box">
+            <span>Secure Banking & UPI Digital Payment Solutions</span>
+            <span class="ad-subtext">In-page payment section unit</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WEBPAGE 4: RULES, PRIVACY & SAFETY (WITH IN-PAGE AD) -->
+    <section id="rules" class="section-card">
+      <div class="section-title">🛡️ Safety, Contact Shield & Rules</div>
+      <ul style="font-size: 13px; color: var(--slate-700); margin-left: 20px; line-height: 1.8;">
+        <li><strong>No Phone Sharing:</strong> Personal phone numbers are strictly prohibited. Taskly monitors chat messages to prevent contact leaks.</li>
+        <li><strong>No Vulgar Language:</strong> Abusive or vulgar language is blocked by the Taskly Safety Shield.</li>
+        <li><strong>Minimum Pay:</strong> Every job pays at least ₹100.</li>
+      </ul>
+
+      <!-- IN-PAGE AD ON RULES WEBPAGE -->
+      <div style="margin-top: 16px;">
+        <div class="ad-container" style="background: #F8FAFC;">
+          <div class="ad-header-row">
+            <span class="ad-badge">SPONSORED • SAFETY WEBPAGE AD</span>
+            <span class="ad-provider">Monetag Partner Unit</span>
+          </div>
+          <div class="ad-content-box">
+            <span>Digital Personal Data Protection & Privacy Tools</span>
+            <span class="ad-subtext">DPDP Act 2023 compliant</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Taskly (www.sarkarijobsewa.com) • All Rights Reserved.</p>
+    <p style="font-size: 11px; margin-top: 4px;">Taskly is a registered task and micro-work platform. Minimum pay ₹100. Contact numbers shielded.</p>
+  </footer>
+
+</body>
+</html>

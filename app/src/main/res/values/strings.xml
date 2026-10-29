@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Taskly</string>
+    <string name="tagline">Stop being idle. Start earning.</string>
+</resources>

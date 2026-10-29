@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.aistudio.kaamwala.xqrmtz",
+      "sha256_cert_fingerprints": [
+        "14:6D:E9:75:5F:52:12:D7:4E:20:9C:E2:16:30:77:2F:A0:F6:C5:A8:88:44:8B:61:94:E8:29:3B:02:9D:EC:6B"
+      ]
+    }
+  }
+]

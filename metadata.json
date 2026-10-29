@@ -1,0 +1,6 @@
+{
+  "name": "Taskly",
+  "description": "Taskly - Local gig and task marketplace with transparent payments, verified listings, and ad monetisation controls.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
